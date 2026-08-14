@@ -11,10 +11,6 @@ import com.dracotech.mangalab.Service.FavouriteService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {
-        "http://localhost:5173",
-        "https://manga-neko-ngv5.vercel.app"
-})
 public class FavouriteController {
 
     @Autowired
