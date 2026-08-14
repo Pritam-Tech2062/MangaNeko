@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dracotech.mangalab.Service.MangaService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://manga-neko-ngv5.vercel.app"
+})
 @RequestMapping("/api/manga")
 public class MangaBrowsing {
 

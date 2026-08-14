@@ -11,7 +11,10 @@ import com.dracotech.mangalab.Service.FavouriteService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://manga-neko-ngv5.vercel.app"
+})
 public class FavouriteController {
 
     @Autowired
@@ -24,7 +27,7 @@ public class FavouriteController {
     }
 
     // Get Favourite
-    @GetMapping({"/users/{userId}/favorites", "/users/favorites"})
+    @GetMapping({ "/users/{userId}/favorites", "/users/favorites" })
     public List<Favourite> getFavourite(
             @PathVariable(required = false) Long userId,
             @RequestParam(required = false) Long userIdParam) {
