@@ -26,7 +26,7 @@ public class MangaBrowsing {
         return mangaService.SearchCover(mangaId);
     }
 
-    @GetMapping("/manga/cover/{mangaId}/{fileName:.+}")
+    @GetMapping("/cover/{mangaId}/{fileName:.+}")
     public ResponseEntity<byte[]> getCover(
             @PathVariable String mangaId,
             @PathVariable String fileName) {
