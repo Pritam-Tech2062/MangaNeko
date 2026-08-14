@@ -13,12 +13,12 @@ export const MangaCard = ({ manga, isFavorite = false, onToggleFavorite }) => {
   // Handle both raw MangaDex item format and backend Favourite object format safely
   const mangaId = manga.mangaId || manga.id;
   const title = manga.mangaTitle || getMangaTitle(manga);
+
+
   console.log("Manga object:", manga);
   console.log("Manga ID:", manga.id);
   console.log("Relationships:", manga.relationships);
   console.log("Cover URL:", getMangaCoverUrl(manga));
-
-
   const coverUrl = manga.mangaCover || getMangaCoverUrl(manga);
 
 
