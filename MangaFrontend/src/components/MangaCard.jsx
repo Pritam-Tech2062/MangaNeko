@@ -46,10 +46,13 @@ export const MangaCard = ({ manga, isFavorite = false, onToggleFavorite }) => {
             src={coverUrl}
             alt={title}
             className="manga-cover-image"
-            loading="lazy"
+            loading="eager"
+            onLoad={(e) => {
+              console.log("IMAGE LOADED:", coverUrl);
+              console.log("Natural size:", e.target.naturalWidth, e.target.naturalHeight);
+            }}
             onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><rect width="100%" height="100%" fill="%2314151e"/><text x="50%" y="50%" fill="%239ca3af" font-size="16" font-family="sans-serif" text-anchor="middle">No Cover</text></svg>';
+              console.error("IMAGE FAILED:", coverUrl);
             }}
           />
           <div className="manga-card-overlay" />
