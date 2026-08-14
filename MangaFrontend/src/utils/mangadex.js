@@ -72,7 +72,9 @@ export const getMangaCoverUrl = (manga) => {
     coverArtRel.attributes &&
     coverArtRel.attributes.fileName
   ) {
-    return `https://uploads.mangadex.org/covers/${manga.id}/${coverArtRel.attributes.fileName}`;
+    return `https://manganeko-2.onrender.com/api/manga/cover/${manga.id}/${encodeURIComponent(
+      coverArtRel.attributes.fileName
+    )}`;
   }
 }
 
