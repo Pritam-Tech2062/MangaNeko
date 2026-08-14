@@ -25,10 +25,10 @@ export const getMangaTitle = (manga) => {
   if (titleObj.en) return titleObj.en;
   if (titleObj.ja) return titleObj.ja;
   if (titleObj['ja-ro']) return titleObj['ja-ro'];
-  
+
   const values = Object.values(titleObj);
   if (values.length > 0) return values[0];
-  
+
   // Try altTitles array if titleObj is empty
   const altTitles = manga.attributes.altTitles;
   if (Array.isArray(altTitles) && altTitles.length > 0) {
@@ -37,7 +37,7 @@ export const getMangaTitle = (manga) => {
       if (altVal) return altVal;
     }
   }
-  
+
   return 'Untitled Manga';
 };
 
@@ -61,12 +61,12 @@ export const getMangaCoverUrl = (manga) => {
   if (!manga || !manga.id) {
     return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><rect width="100%" height="100%" fill="%2314151e"/><text x="50%" y="50%" fill="%239ca3af" font-size="16" font-family="sans-serif" text-anchor="middle">No Cover</text></svg>';
   }
-  
+
   const relationships = manga.relationships || [];
   const coverArtRel = relationships.find((rel) => rel.type === 'cover_art');
-  
+
   if (coverArtRel && coverArtRel.attributes && coverArtRel.attributes.fileName) {
-    return `https://uploads.mangadex.org/covers/${manga.id}/${coverArtRel.attributes.fileName}`;
+    return `https://uploads.mangadex.org/covers/${manga.id}/${coverArtRel.attributes.fileName}.512.jpg`;
   }
 
   const titleText = encodeURIComponent(getMangaTitle(manga));
