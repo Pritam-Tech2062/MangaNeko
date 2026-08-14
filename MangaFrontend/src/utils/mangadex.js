@@ -63,15 +63,18 @@ export const getMangaCoverUrl = (manga) => {
   }
 
   const relationships = manga.relationships || [];
-  const coverArtRel = relationships.find((rel) => rel.type === 'cover_art');
+  const coverArtRel = relationships.find(
+    (rel) => rel.type === 'cover_art'
+  );
 
-  if (coverArtRel && coverArtRel.attributes && coverArtRel.attributes.fileName) {
-    return `https://uploads.mangadex.org/covers/${manga.id}/${coverArtRel.attributes.fileName}.512.jpg`;
+  if (
+    coverArtRel &&
+    coverArtRel.attributes &&
+    coverArtRel.attributes.fileName
+  ) {
+    return `https://uploads.mangadex.org/covers/${manga.id}/${coverArtRel.attributes.fileName}`;
   }
-
-  const titleText = encodeURIComponent(getMangaTitle(manga));
-  return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><rect width="100%" height="100%" fill="%2314151e"/><text x="50%" y="50%" fill="%239ca3af" font-size="14" font-family="sans-serif" text-anchor="middle">${titleText}</text></svg>`;
-};
+}
 
 /**
  * Extracts array of tag names (genres).
