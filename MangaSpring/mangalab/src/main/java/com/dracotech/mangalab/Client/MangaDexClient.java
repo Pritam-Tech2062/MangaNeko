@@ -2,6 +2,10 @@ package com.dracotech.mangalab.Client;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+import java.net.URI;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 @Service
 public class MangaDexClient {
@@ -139,5 +143,20 @@ public class MangaDexClient {
                                                 .build())
                                 .retrieve()
                                 .body(String.class);
+        }
+
+        // Fetch cover bytes for the backend proxy endpoint
+        public byte[] getCoverImage(String mangaId, String fileName) {
+                String coverUrl = "https://uploads.mangadex.org/covers/"
+                                + mangaId + "/"
+                                + fileName;
+
+                return restClient.get()
+                                .uri(URI.create(coverUrl))
+                                .header(HttpHeaders.USER_AGENT, "MangaNeko/1.0")
+                                .header(HttpHeaders.REFERER, "https://mangadex.org/")
+                                .accept(MediaType.ALL)
+                                .retrieve()
+                                .body(byte[].class);
         }
 }

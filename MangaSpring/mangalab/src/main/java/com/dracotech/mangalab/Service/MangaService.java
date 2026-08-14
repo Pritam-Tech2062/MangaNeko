@@ -17,6 +17,10 @@ public class MangaService {
         return mangaDexClient.searchCover(mangaId);
     }
 
+    public byte[] getCoverImage(String mangaId, String fileName) {
+        return mangaDexClient.getCoverImage(mangaId, fileName);
+    }
+
     public String searchByFeatured() {
         return mangaDexClient.searchByFeatured();
     }
