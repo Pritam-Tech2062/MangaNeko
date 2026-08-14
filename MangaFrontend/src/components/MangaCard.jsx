@@ -10,6 +10,7 @@ import {
 export const MangaCard = ({ manga, isFavorite = false, onToggleFavorite }) => {
   if (!manga) return null;
 
+  console.log("🔥 MANGACARD COMPONENT IS RUNNING", manga);
   // Handle both raw MangaDex item format and backend Favourite object format safely
   const mangaId = manga.mangaId || manga.id;
   const title = manga.mangaTitle || getMangaTitle(manga);
