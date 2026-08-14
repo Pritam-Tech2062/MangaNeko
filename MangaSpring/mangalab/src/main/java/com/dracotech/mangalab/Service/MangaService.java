@@ -13,6 +13,10 @@ public class MangaService {
         this.mangaDexClient = mangaDexClient;
     }
 
+    public String SearchCover(String mangaId) {
+        return mangaDexClient.searchCover(mangaId);
+    }
+
     public String searchByFeatured() {
         return mangaDexClient.searchByFeatured();
     }

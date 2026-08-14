@@ -128,4 +128,16 @@ public class MangaDexClient {
                                 .retrieve()
                                 .body(String.class);
         }
+
+        // Get current cover for manga
+        public String searchCover(String mangaId) {
+                return restClient.get()
+                                .uri(uriBuilder -> uriBuilder
+                                                .path("/cover")
+                                                .queryParam("manga[]", mangaId)
+                                                .queryParam("limit", 1)
+                                                .build())
+                                .retrieve()
+                                .body(String.class);
+        }
 }

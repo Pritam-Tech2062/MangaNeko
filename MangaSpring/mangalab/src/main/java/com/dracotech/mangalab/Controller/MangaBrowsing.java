@@ -14,6 +14,11 @@ public class MangaBrowsing {
     @Autowired
     public MangaService mangaService;
 
+    @GetMapping("/cover")
+    public String getCover(@RequestParam String mangaId) {
+        return mangaService.SearchCover(mangaId);
+    }
+
     @GetMapping("/search")
     public String searchManga(@RequestParam String title) {
         return mangaService.SearchManga(title);
