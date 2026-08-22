@@ -44,7 +44,7 @@
 - Git
 - GitHub
 - Postman
-- IntelliJ IDEA
+- Antigravity IDE
 - Render
 
 ## 🏗️ Architecture
